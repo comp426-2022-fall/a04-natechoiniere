@@ -18,7 +18,7 @@ app.get('/app/', (req, res, next) => {
 	res.status(200).send('200 OK');
 	
 });
-app.post('/app/roll/', (req, res, next) => {
+app.post('/app/roll/', (req, res) => {
 	// accept JSON or URLEncoded data body?
 	// req.body for the data body
 	// req.params for  everything before the ? in URL string
@@ -26,15 +26,15 @@ app.post('/app/roll/', (req, res, next) => {
 	res.send(roll(6, 2, 1));
 	
 });
-app.get('/app/roll/:sides/', (req, res, next) => {
+app.get('/app/roll/:sides/', (req, res) => {
 	 // return JSON for default num of rolls/dice with whatever num sides
 	 res.send(roll(req.params.sides, 2, 1));
 });
-app.get('app/roll/:sides/:dice/', (req, res, next) => {
+app.get('app/roll/:sides/:dice/', (req, res) => {
 	//return json w/ default num/rolls w/ whatever num sides/dice
 	res.send(roll(req.params.sides, req.params.dice, 1));
 });
-app.get('app/roll/:sides/:dice/:rolls/', (req, res, next) => {
+app.get('app/roll/:sides/:dice/:rolls/', (req, res) => {
 	//return json w/ given params for roll-dice
 	res.send(roll(req.params.sides, req.params.dice, req.params.rolls));
 });
