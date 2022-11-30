@@ -24,6 +24,10 @@ app.get('/app/roll/', (req, res) => {
 	res.send(roll(6, 2, 1));
 	
 });
+app.post('/app/roll/', (req, res) => {
+	res.setHeader('Content-Type', 'application/json');
+	res.send(roll(6,2,1));
+});
 app.get('/app/roll/:sides/', (req, res) => {
 	 // return JSON for default num of rolls/dice with whatever num sides
 	 res.setHeader('Content-Type', 'application/json');
