@@ -20,11 +20,13 @@ app.post('/app/roll/', (req, res) => {
 	// req.body for the data body
 	// req.params for  everything before the ? in URL string
 	// valid param names defined by us
+	res.setHeader('Content-Type', 'application/json');
 	res.send(roll(6, 2, 1));
 	
 });
 app.get('/app/roll/:sides/', (req, res) => {
 	 // return JSON for default num of rolls/dice with whatever num sides
+	 res.setHeader('Content-Type', 'application/json');
 	 res.send(roll(parseInt(req.params.sides), 2, 1));
 });
 app.get('app/roll/:sides/:dice/', (req, res) => {
@@ -34,6 +36,7 @@ app.get('app/roll/:sides/:dice/', (req, res) => {
 });
 app.get('app/roll/:sides/:dice/:rolls/', (req, res) => {
 	//return json w/ given params for roll-dice
+	res.setHeader('Content-Type', 'application/json');
 	res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls)));
 });
 app.get('*', (req, res, next) => {
