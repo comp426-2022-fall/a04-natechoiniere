@@ -29,12 +29,12 @@ app.get('/app/roll/:sides/', (req, res) => {
 	 res.setHeader('Content-Type', 'application/json');
 	 res.send(roll(parseInt(req.params.sides), 2, 1));
 });
-app.get('app/roll/:sides/:dice/', (req, res) => {
+app.get('app/roll/:sides/:dice/', (req, res, next) => {
 	//return json w/ default num/rolls w/ whatever num sides/dice
 	res.setHeader('Content-Type', 'application/json');
 	res.send(roll(parseInt(req.params.sidesi), parseInt(req.params.dice), 1));
 });
-app.get('app/roll/:sides/:dice/:rolls/', (req, res) => {
+app.get('app/roll/:sides/:dice/:rolls/', (req, res, next) => {
 	//return json w/ given params for roll-dice
 	res.setHeader('Content-Type', 'application/json');
 	res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls)));
