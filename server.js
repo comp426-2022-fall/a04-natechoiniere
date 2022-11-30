@@ -15,7 +15,7 @@ app.get('/app/', (req, res, next) => {
 	res.status(200).send('200 OK');
 	
 });
-app.post('/app/roll/', (req, res) => {
+app.get('/app/roll/', (req, res) => {
 	// accept JSON or URLEncoded data body?
 	// req.body for the data body
 	// req.params for  everything before the ? in URL string
